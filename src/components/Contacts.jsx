@@ -51,25 +51,22 @@ class Contacts extends React.Component {
     });
   };
   addRandomContact = () => {
-    //get a random item
+    const unusedContacts = contacts.filter(
+      (f) => !this.state.contacts.includes(f)
+    );
 
-    //     if (!limited.includes(randomContact)) {
-    // //     limited.push(randomContact);
-    //   }
-    const randomItem = Math.floor(Math.random() * contacts.length);
-    const randomContact = contacts[randomItem];
-    const oldContacts = [...this.state.contacts];
+    const randomItem = Math.floor(Math.random() * unusedContacts.length);
+    const randomContact = unusedContacts[randomItem];
     const newContacts = [...this.state.contacts, randomContact];
     this.setState({
-      contacts: oldContacts.includes(randomContact) ? oldContacts : newContacts,
+      contacts: newContacts,
     });
   };
 
   delete = (actorId) => {
     const list = [...this.state.contacts];
-    console.log(actorId);
+
     const filter = list.filter((contact) => contact.id !== actorId);
-    console.log(filter);
 
     this.setState({
       contacts: filter,
@@ -78,13 +75,18 @@ class Contacts extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.sort}>Sort alphabetically</button>
-        <button onClick={this.sortReversed}>Sort reverse-alphabetically</button>
-        <button onClick={this.addRandomContact}>Add Random Contact</button>
-        <button onClick={this.sortByMostPopular}>Sort by most popular</button>
-        <button onClick={this.sortByLeastPopular}>Sort by least popular</button>
-
+      <div className="main-container">
+        <aside className="buttons">
+          <button onClick={this.sort}>Sort alphabetically</button>
+          <button onClick={this.sortReversed}>
+            Sort reverse-alphabetically
+          </button>
+          <button onClick={this.addRandomContact}>Add Random Contact</button>
+          <button onClick={this.sortByMostPopular}>Sort by most popular</button>
+          <button onClick={this.sortByLeastPopular}>
+            Sort by least popular
+          </button>
+        </aside>
         <div className="results-container">
           <table>
             <thead>

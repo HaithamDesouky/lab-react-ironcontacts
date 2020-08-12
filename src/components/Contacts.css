@@ -2,7 +2,31 @@ img {
   max-width: 150px;
 }
 
-.results-container {
+.main-container {
+  height: 100vh;
   display: flex;
+  width: 100vw;
+}
+
+.results-container {
+  display: relative;
   justify-content: center;
+  height: 100%;
+  margin: 0 auto;
+}
+tr:nth-of-type(even) {
+  background-color: red;
+}
+
+.buttons {
+  display: flex;
+  background-color: black;
+  width: 100%;
+  height: 10vh;
+  padding: 1rem;
+  justify-content: center;
+  position: fixed;
+  margin: 0 1rem;
+  align-self: flex-end;
+  z-index: 1;
 }
