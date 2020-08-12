@@ -3,29 +3,11 @@ import './Contacts.css';
 
 import contacts from '../contacts.json';
 
-// const generateName = () =>
-//   [...new Array(8)]
-//     .fill(null)
-//     .map(() => 'ABCDEFGHI'[Math.floor(Math.random() * 9)])
-//     .join('');
-
-// const generatePhoneNumber = () =>
-//   Math.floor(Math.random() * 10 ** 10).toString();
-const limited = contacts.slice(0, 5);
-
-// const randomContact = () => {
-//   let contactsCopy = [...contacts];
-//   const randomContact =
-//     contactsCopy[Math.ceil(Math.random() * contactsCopy.length - 1)];
-
-//
-// };
-
 class Contacts extends React.Component {
   constructor() {
     super();
     this.state = {
-      contacts: limited,
+      contacts: contacts.slice(0, 5),
     };
   }
 
